@@ -7,7 +7,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Sản phẩm mới</h2>
+                    @foreach($brand_name as $key => $name)
+                        <h2>{{$name->brand_name}}</h2>
+                    @endforeach
                     </div>
                     <div class="featured__controls">
                         <ul>
@@ -23,12 +25,12 @@
 
            
             <div class="row featured__filter">
-            @foreach($all_product as $key => $product)
+            @foreach($brand_by_id as $key => $product)
                 <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">         
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="{{URL::to('public/uploads/product/'.$product->product_image)}}">
                             <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="{{URL::to('/chi-tiet-san-pham/'.$product->product_id)}}"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
