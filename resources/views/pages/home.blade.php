@@ -28,7 +28,7 @@
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="{{URL::to('public/uploads/product/'.$product->product_image)}}">
                             <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="{{URL::to('/chi-tiet-san-pham/'.$product->product_id)}}"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
