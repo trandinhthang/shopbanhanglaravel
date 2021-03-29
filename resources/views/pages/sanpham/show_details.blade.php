@@ -31,21 +31,16 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-half-o"></i>
-                            
+
                         </div>
+                        <form action="{{URL::to('/save-cart')}}" method="post">
+                            {{csrf_field()}}
                         <div class="product__details__price">{{number_format($value->product_price).' '.'VND'}}</div>
-                        <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam
-                            vehicula elementum sed sit amet dui. Sed porttitor lectus nibh. Vestibulum ac diam sit amet
-                            quam vehicula elementum sed sit amet dui. Proin eget tortor risus.</p>
-                        <div class="product__details__quantity">
-                            <div class="quantity">
-                                <div class="pro-qty">
-                                    <input type="text" value="1">
-                                </div>
-                            </div>
                         </div>
-                        <a href="#" class="primary-btn">ADD TO CARD</a>
-                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        <input name="qty" type="number" min="1" value="1">
+                        <input name="productid_hidden" type="hidden" value="{{$value->product_id}}" />
+                            <button type="submit" class="primary-btn">ADD TO CARD</button>
+                        </form>
                         <ul>
                             <li><b>Availability</b> <span>In Stock</span></li>
                             <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
@@ -74,7 +69,7 @@
                                 <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
                                     aria-selected="false">Information</a>
                             </li>
-                           
+
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
@@ -89,7 +84,7 @@
                                     <p>{!!$value->product_content!!}</p>
                                 </div>
                             </div>
-                           
+
                         </div>
                     </div>
                 </div>

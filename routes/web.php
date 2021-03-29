@@ -64,3 +64,9 @@ Route::get('/unactive-product/{product_id}','App\Http\Controllers\ProductControl
 Route::get('/active-product/{product_id}','App\Http\Controllers\ProductController@active_product');
 Route::post('/save-product','App\Http\Controllers\ProductController@save_product');
 Route::post('/update-product/{product_id}','App\Http\Controllers\ProductController@update_product');
+
+//Cart
+Route::post('/save-cart','App\Http\Controllers\CartController@save_cart');
+Route::get('/show-cart','App\Http\Controllers\CartController@show_cart');
+Route::get('/delete-cart/{rowId}','App\Http\Controllers\CartController@delete_cart');
+Route::post('/update-cart','App\Http\Controllers\CartController@update_cart' );
