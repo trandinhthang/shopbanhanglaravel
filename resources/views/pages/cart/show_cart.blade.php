@@ -1,7 +1,9 @@
+
+
 @extends('layout')
 @section('content')
- <!-- Shoping Cart Section Begin -->
- <!-- Shoping Cart Section Begin -->
+
+<h1> SHOPPING CART</h1>
  <section class="shoping-cart spad">
      <?php
         $content = Cart::content();
@@ -12,7 +14,7 @@
                     <div class="shoping__cart__table">
                         <table>
                             <thead>
-                            <tr class="cart_menu">
+                            <tr style="color:#0c8a06">
                                 <td class="image">Hình ảnh</td>
                                 <td class="description">Chi tiết sản phẩm</td>
                                 <td class="price">Giá (VND)</td>
@@ -40,7 +42,7 @@
 									{{ csrf_field()}}
 									<input class="cart_quantity_input" type="text" name="cart_quantity" value="{{$value_content->qty}}" >
 									<input type="hidden" value="{{$value_content->rowId}} "name="rowId_cart" class="form-control">
-									<input type="submit" value="cập nhật" name="update_qty" class="btn btn-default btn-sm">
+									<input type="submit" value="Cập nhật" name="update_qty" class="btn btn-default btn-sm">
 								</form>
 							</div>
                                 </td>
@@ -72,7 +74,20 @@
                             <li>Phí vận chuyển <span>0</span></li>
                             <li>Thành tiền <span>{{(cart::total())}}</span></li>
                         </ul>
-                        <a href="#" class="primary-btn">Thanh toán</a>
+                        <?php
+                                $customer_id= Session::get('customer_id');
+                                if($customer_id != NULL){
+                            ?>
+                               <a  class="primary-btn" href="{{URL::to('/checkout')}}">Thanh Toán</a>
+
+                            <?php
+                                } else {
+                            ?>
+                                <a  class="primary-btn" href="{{URL::to('/login-checkout')}}">Thanh toán</a>
+                            <?php
+                                }
+                            ?>
+
                     </div>
                 </div>
             </div>

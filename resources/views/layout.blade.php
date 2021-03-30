@@ -7,7 +7,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ogani | Template</title>
+    <title>Đồ chơi cao cấp | Trang chủ</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -33,14 +33,14 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="#"><img src="{{('public/frontend/images/logo.png')}}" alt=""></a>
+            <a href=""><img src="{{('public/frontend/images/logo.png')}}" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                 <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
             </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
+            <div class="header__cart__price">item: <span></span></div>
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
@@ -58,9 +58,9 @@
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="{{URL::to('/trang chu')}}">Home</a></li>
-                <li><a href="./shop-grid.html">Shop</a></li>
-                <li><a href="#">Pages</a>
+                <li class="active"><a href="{{URL::to('/trang chu')}}">Trang chủ</a></li>
+                <li><a href="./shop-grid.html">Tin tức</a></li>
+                <li><a href="#">Giỏ hàng</a>
                     <ul class="header__menu__dropdown">
                         <li><a href="./shop-details.html">Shop Details</a></li>
                         <li><a href="./shoping-cart.html">Shoping Cart</a></li>
@@ -68,8 +68,8 @@
                         <li><a href="./blog-details.html">Blog Details</a></li>
                     </ul>
                 </li>
-                <li><a href="./blog.html">Blog</a></li>
-                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="./blog.html">Đăng nhập</a></li>
+                <li><a href="./contact.html">Liên hệ</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -90,64 +90,47 @@
 
     <!-- Header Section Begin -->
     <header class="header">
-        <div class="header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__left">
-                            <ul>
-                                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                                <li>Free Shipping for all Order of $99</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__right">
-                            <div class="header__top__right__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
-                            </div>
-                            <div class="header__top__right__language">
-                                <img src="{{('public/frontend/img/language.png')}}" alt="">
-                                <div>English</div>
-                                <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">Spanis</a></li>
-                                    <li><a href="#">English</a></li>
-                                </ul>
-                            </div>
-                            <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="{{('public/frontend/images/logo.png')}}" alt=""></a>
+                        <a href="{{URL::to('/trang-chu')}}"><img src="{{('public/frontend/images/logo.png')}}" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="{{URL::to('/trang-chu')}}">Home</a></li>
-                            <li><a href="./shop-grid.html">Shop</a></li>
-                            <li><a href="#">Pages</a>
-                                <ul class="header__menu__dropdown">
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
-                                </ul>
+                            <li class="active"><a href="{{URL::to('/trang-chu')}}">Trang chủ</a></li>
+                            <?php
+                                $customer_id= Session::get('customer_id');
+                                if($customer_id != NULL){
+                            ?>
+                               <li><a href="{{URL::to('/checkout')}}">Thanh Toán</a>
+
+                            <?php
+                                } else {
+                            ?>
+                                <li><a  href="{{URL::to('/login-checkout')}}">Thanh toán</a></li>
+                            <?php
+                                }
+                            ?>
+                            <li><a  href="{{URL::to('/show-cart')}}">Giỏ hàng</a></li>
+
                             </li>
-                            <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contact</a></li>
+
+                            <?php
+                                $customer_id= Session::get('customer_id');
+                                if($customer_id != NULL){
+                            ?>
+                                <li><a  href="{{URL::to('/logout-checkout')}}">Đăng xuất</a></li>
+
+                            <?php
+                                } else {
+                            ?>
+                                <li><a  href="{{URL::to('/login-checkout')}}">Đăng nhập</a></li>
+                            <?php
+                                }
+                            ?>
                         </ul>
                     </nav>
                 </div>
@@ -157,7 +140,7 @@
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                             <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
+                        <div class="header__cart__price">item: <span></span></div>
                     </div>
                 </div>
             </div>
@@ -180,9 +163,9 @@
                         </div>
                         <ul>
                         @foreach($category as $key => $cate)
-                  
-                            <li><a href="{{URL::to('/danh-muc-san-pham/'.$cate->category_id)}}">{{$cate->category_name}}</a></li>                          
-                        
+
+                            <li><a href="{{URL::to('/danh-muc-san-pham/'.$cate->category_id)}}">{{$cate->category_name}}</a></li>
+
                         @endforeach
                         </ul>
                     </div>
@@ -194,32 +177,24 @@
                         <ul>
                         @foreach($brand as $key => $brand)
                             <li><a href="{{URL::to('/thuong-hieu-san-pham/'.$brand->brand_id)}}">{{$brand->brand_name}}</a></li>
-                         @endforeach  
+                         @endforeach
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
                             <form action="#">
                                 <div class="hero__search__categories">
-                                    All Categories
+                                    Tất cả sản phẩm
                                     <span class="arrow_carrot-down"></span>
                                 </div>
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
+                                <input type="text" placeholder="Bạn muốn tìm gì?">
+                                <button type="submit" class="site-btn">Tìm kiếm</button>
                             </form>
                         </div>
-                        <div class="hero__search__phone">
-                            <div class="hero__search__phone__icon">
-                                <i class="fa fa-phone"></i>
-                            </div>
-                            <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
-                                <span>support 24/7 time</span>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="hero__item set-bg" data-setbg="{{('public/frontend/images/banner.jpg')}}">
                         <div class="hero__text">
@@ -236,83 +211,16 @@
     <!-- Hero Section End -->
 
     <!-- Categories Section Begin -->
-    
+
     <!-- Categories Section End -->
 
     <!-- Featured Section Begin -->
-    
+
     <!-- Featured Section End -->
     <div>
         @yield('content')
     </div>
     <!-- Banner Begin -->
-    
-    <!-- Banner End -->
-
-    <!-- Latest Product Section Begin -->
-   
-    <!-- Latest Product Section End -->
-
-    <!-- Blog Section Begin -->
-    <section class="from-blog spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title from-blog__title">
-                        <h2>From The Blog</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="blog__item">
-                        <div class="blog__item__pic">
-                            <img src="{{('public/frontend/images/blog-1.jpg')}}" alt="">
-                        </div>
-                        <div class="blog__item__text">
-                            <ul>
-                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                <li><i class="fa fa-comment-o"></i> 5</li>
-                            </ul>
-                            <h5><a href="#">Cooking tips make cooking simple</a></h5>
-                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="blog__item">
-                        <div class="blog__item__pic">
-                            <img src="{{('public/frontend/images/blog-2.jpg')}}" alt="">
-                        </div>
-                        <div class="blog__item__text">
-                            <ul>
-                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                <li><i class="fa fa-comment-o"></i> 5</li>
-                            </ul>
-                            <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
-                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="blog__item">
-                        <div class="blog__item__pic">
-                            <img src="{{('public/frontend/images/blog-3.jpg')}}" alt="">
-                        </div>
-                        <div class="blog__item__text">
-                            <ul>
-                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                <li><i class="fa fa-comment-o"></i> 5</li>
-                            </ul>
-                            <h5><a href="#">Visit the clean farm in the US</a></h5>
-                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Blog Section End -->
 
     <!-- Footer Section Begin -->
     <footer class="footer spad">

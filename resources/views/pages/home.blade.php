@@ -9,22 +9,13 @@
                     <div class="section-title">
                         <h2>Sản phẩm mới</h2>
                     </div>
-                    <div class="featured__controls">
-                        <ul>
-                            <li class="active" data-filter="*">All</li>
-                            <li data-filter=".oranges">Oranges</li>
-                            <li data-filter=".fresh-meat">Fresh Meat</li>
-                            <li data-filter=".vegetables">Vegetables</li>
-                            <li data-filter=".fastfood">Fastfood</li>
-                        </ul>
-                    </div>
                 </div>
             </div>
 
-           
+
             <div class="row featured__filter">
             @foreach($all_product as $key => $product)
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">         
+                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="{{URL::to('public/uploads/product/'.$product->product_image)}}">
                             <ul class="featured__item__pic__hover">
@@ -37,11 +28,11 @@
                             <h6><a href="#">{{$product->product_name}}</a></h6>
                             <h5>{{number_format($product->product_price).' '.'VND'}}</h5>
                         </div>
-                    </div>               
+                    </div>
                 </div>
             @endforeach
            </div>
-           
+
 
         </div>
     </section>
@@ -63,7 +54,7 @@
                                         <span>$30.00</span>
                                     </div>
                                 </a>
-                                
+
                             </div>
                             <div class="latest-prdouct__slider__item">
                                 <a href="#" class="latest-product__item">
@@ -75,7 +66,7 @@
                                         <span>$30.00</span>
                                     </div>
                                 </a>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -94,7 +85,7 @@
                                         <span>$30.00</span>
                                     </div>
                                 </a>
-                                
+
                             </div>
                             <div class="latest-prdouct__slider__item">
                                 <a href="#" class="latest-product__item">
@@ -106,7 +97,7 @@
                                         <span>$30.00</span>
                                     </div>
                                 </a>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -125,7 +116,7 @@
                                         <span>$30.00</span>
                                     </div>
                                 </a>
-                                
+
                             </div>
                             <div class="latest-prdouct__slider__item">
                                 <a href="#" class="latest-product__item">
@@ -137,7 +128,7 @@
                                         <span>$30.00</span>
                                     </div>
                                 </a>
-                                
+
                             </div>
                         </div>
                     </div>

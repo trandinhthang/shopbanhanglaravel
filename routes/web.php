@@ -70,3 +70,11 @@ Route::post('/save-cart','App\Http\Controllers\CartController@save_cart');
 Route::get('/show-cart','App\Http\Controllers\CartController@show_cart');
 Route::get('/delete-cart/{rowId}','App\Http\Controllers\CartController@delete_cart');
 Route::post('/update-cart','App\Http\Controllers\CartController@update_cart' );
+
+//Checkout
+Route::get('/login-checkout','App\Http\Controllers\CheckoutController@login_checkout');
+Route::get('/logout-checkout','App\Http\Controllers\CheckoutController@logout_checkout');
+Route::post('/add-customer','App\Http\Controllers\CheckoutController@add_customer' );
+Route::get('/checkout','App\Http\Controllers\CheckoutController@checkout');
+Route::post('/save-checkout-customer','App\Http\Controllers\CheckoutController@save_checkout_customer' );
+Route::post('/login-customer','App\Http\Controllers\CheckoutController@login_customer' );
