@@ -101,12 +101,18 @@
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="{{URL::to('/trang-chu')}}">Trang chủ</a></li>
+
                             <?php
                                 $customer_id= Session::get('customer_id');
-                                if($customer_id != NULL){
+                                $shipping_id = Session::get('shipping_id');
+                                if($customer_id != NULL && $shipping_id ==NULL){
                             ?>
                                <li><a href="{{URL::to('/checkout')}}">Thanh Toán</a>
+                            <?php
+                                } elseif($customer_id !=NULL && $shipping_id !=NULL){
 
+                            ?>
+                                <li><a href="{{URL::to('/payment')}}">Thanh Toán</a>
                             <?php
                                 } else {
                             ?>
@@ -114,6 +120,7 @@
                             <?php
                                 }
                             ?>
+
                             <li><a  href="{{URL::to('/show-cart')}}">Giỏ hàng</a></li>
 
                             </li>

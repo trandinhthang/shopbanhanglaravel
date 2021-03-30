@@ -7,6 +7,7 @@ use DB;
 use Session;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
+use Cart;
 session_start();
 
 class CheckoutController extends Controller
@@ -52,7 +53,10 @@ class CheckoutController extends Controller
     }
 
     public function payment() {
+        $cate_product = DB::table('tbl_category_product')->where('category_status','0')->orderby('category_id','desc')->get();
+        $brand_product = DB::table('tbl_brand')->where('brand_status','0')->orderby('brand_id','desc')->get();
 
+        return view('pages.checkout.payment')->with('category',$cate_product)->with('brand',$brand_product);
     }
 
     public function logout_checkout() {
@@ -73,8 +77,47 @@ class CheckoutController extends Controller
             return Redirect::to('/login-checkout');
         }
 
+    }
 
+    public function order_place(Request $request) {
 
+        // insert payment method
+        $data = array();
+        $data['payment_method'] = $request->payment_option;
+        $data['payment_status'] = 'Dang cho xu ly';
 
+        $payment_id =DB::table('tbl_payment')->insertGetId($data);
+
+        // insert order method
+        $order_data = array();
+        $order_data['customer_id'] = Session::get('customer_id');
+        $order_data['shipping_id'] = Session::get('shipping_id');
+        $order_data['payment_id'] = $payment_id;
+        $order_data['order_total'] = Cart::total();
+        $order_data['order_status'] = 'Dang cho xu ly';
+
+        $order_id =DB::table('tbl_order')->insertGetId($order_data);
+
+        $content= Cart::content();
+        // insert order detail method
+        foreach( $content as $v_content){
+            $order_d_data = array();
+            $order_d_data['order_id'] = $order_id;
+            $order_d_data['product_id'] = $v_content->id;
+            $order_d_data['product_name'] =$v_content->name;
+            $order_d_data['product_price'] = $v_content->price;
+            $order_d_data['product_quantity'] = $v_content->qty;
+            DB::table('tbl_order_detail')->insertGetId($order_d_data);
+        }
+
+        if($data['payment_method']==1){
+            $cate_product = DB::table('tbl_category_product')->where('category_status','0')->orderby('category_id','desc')->get();
+            $brand_product = DB::table('tbl_brand')->where('brand_status','0')->orderby('brand_id','desc')->get();
+
+            Cart::destroy();
+            return view('pages.checkout.handcash')->with('category',$cate_product)->with('brand',$brand_product);;
+        } else {
+            echo "paypal";
+        }
     }
 }

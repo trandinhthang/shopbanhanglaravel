@@ -74,7 +74,10 @@ Route::post('/update-cart','App\Http\Controllers\CartController@update_cart' );
 //Checkout
 Route::get('/login-checkout','App\Http\Controllers\CheckoutController@login_checkout');
 Route::get('/logout-checkout','App\Http\Controllers\CheckoutController@logout_checkout');
-Route::post('/add-customer','App\Http\Controllers\CheckoutController@add_customer' );
+Route::get('/payment','App\Http\Controllers\CheckoutController@payment');
 Route::get('/checkout','App\Http\Controllers\CheckoutController@checkout');
+Route::post('/add-customer','App\Http\Controllers\CheckoutController@add_customer' );
+Route::post('/order-place','App\Http\Controllers\CheckoutController@order_place' );
 Route::post('/save-checkout-customer','App\Http\Controllers\CheckoutController@save_checkout_customer' );
 Route::post('/login-customer','App\Http\Controllers\CheckoutController@login_customer' );
+

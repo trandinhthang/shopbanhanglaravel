@@ -1,5 +1,3 @@
-
-
 @extends('layout')
 @section('content')
 
@@ -64,34 +62,32 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="shoping__checkout">
-                        <h5>Cart Total</h5>
-                        <ul>
-                            <li>Tổng <span>{{(cart::subtotal())}}</span></li>
-                            <li>Thuế VAT <span>{{(cart::tax())}}</span></li>
-                            <li>Phí vận chuyển <span>0</span></li>
-                            <li>Thành tiền <span>{{(cart::total())}}</span></li>
-                        </ul>
-                        <?php
-                                $customer_id= Session::get('customer_id');
-                                if($customer_id != NULL){
-                            ?>
-                               <a  class="primary-btn" href="{{URL::to('/checkout')}}">Thanh Toán</a>
-
-                            <?php
-                                } else {
-                            ?>
-                                <a  class="primary-btn" href="{{URL::to('/login-checkout')}}">Thanh toán</a>
-                            <?php
-                                }
-                            ?>
-
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
+    <div class="col-lg-4 col-md-6">
+    <div style="margin-left:150px" class="checkout__order">
+    <h4>Hình thức thanh toán</h4>
+        <form action="{{URL::to('/order-place')}}" method="post">
+        {{csrf_field()}}
+            <div  class="checkout__input__checkbox">
+            <label for="payment">
+                Trực tiếp
+                <input name="payment_option" value="1" type="radio" id="payment">
+                <span class="checkmark"></span>
+            </label>
+            </div>
+            <div class="checkout__input__checkbox">
+
+                <label for="paypal">
+                    Paypal
+                    <input name="payment_option" value="2" type="radio" id="paypal">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <button type="submit" class="site-btn">Thanh toán</button>
+        </form>
+    </div>
+    </div>
+
     <!-- Shoping Cart Section End -->
 @endsection()
