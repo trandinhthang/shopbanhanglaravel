@@ -115,9 +115,13 @@ class CheckoutController extends Controller
             $brand_product = DB::table('tbl_brand')->where('brand_status','0')->orderby('brand_id','desc')->get();
 
             Cart::destroy();
-            return view('pages.checkout.handcash')->with('category',$cate_product)->with('brand',$brand_product);;
+            return view('pages.checkout.handcash')->with('category',$cate_product)->with('brand',$brand_product);
         } else {
-            echo "paypal";
+            $cate_product = DB::table('tbl_category_product')->where('category_status','0')->orderby('category_id','desc')->get();
+            $brand_product = DB::table('tbl_brand')->where('brand_status','0')->orderby('brand_id','desc')->get();
+
+            Cart::destroy();
+            return view('pages.checkout.paypal')->with('category',$cate_product)->with('brand',$brand_product);
         }
     }
 }

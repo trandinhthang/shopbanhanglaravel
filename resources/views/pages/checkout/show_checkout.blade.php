@@ -36,11 +36,14 @@
                             </div>
 
                             <button type="submit" class="site-btn">Thanh toán</button>
+
                         </div>
+
                     </div>
                 </div>
             </form>
         </div>
+
     </div>
 </section>
 <!-- Checkout Section End -->

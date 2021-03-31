@@ -3,7 +3,7 @@
 @extends('layout')
 @section('content')
 
-<h1 style="margin-left:170px;color:#0c8a06"> Giỏ Hàng</h1>
+<h2 style="margin-left:270px;color:#0c8a06"> Giỏ Hàng Của Bạn</h2>
  <section class="shoping-cart spad">
      <?php
         $content = Cart::content();
@@ -14,7 +14,7 @@
                     <div class="shoping__cart__table">
                         <table>
                             <thead>
-                            <tr style="font-weight:bold;;color:#0c8a06">
+                            <tr style="font-weight:bold;font-size: 25px;color:#0c8a06">
                                 <td class="image">Hình ảnh</td>
                                 <td class="description">Chi tiết sản phẩm</td>
                                 <td class="price">Giá (VND)</td>
@@ -40,9 +40,9 @@
                                 <div class="cart_quantity_button">
 								<form action="{{URL::to('/update-cart')}}" method="POST">
 									{{ csrf_field()}}
-									<input class="cart_quantity_input" type="text" name="cart_quantity" value="{{$value_content->qty}}" >
+									<input class="cart_quantity_input" type="number" name="cart_quantity" value="{{$value_content->qty}}" >
 									<input type="hidden" value="{{$value_content->rowId}} "name="rowId_cart" class="form-control">
-									<input type="submit" value="Cập nhật" name="update_qty" class="btn btn-default btn-sm">
+									<input style="color:white;background-color:green" type="submit" value="Cập nhật" name="update_qty" class="btn btn-default btn-sm">
 								</form>
 							</div>
                                 </td>
@@ -58,6 +58,7 @@
                                     <a class="cart_quantity_delete" href="{{URL::to('/delete-cart/'.$value_content->rowId)}}"><i class="fa fa-times"></i></a>
                                 </td>
                             </tr>
+
                             @endforeach()
                         </tbody>
                         </table>
@@ -73,6 +74,8 @@
                             <li>Thuế VAT <span>{{(cart::tax())}}</span></li>
                             <li>Phí vận chuyển <span>0</span></li>
                             <li>Thành tiền <span>{{(cart::total())}}</span></li>
+
+
                         </ul>
                         <?php
                                 $customer_id= Session::get('customer_id');

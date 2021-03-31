@@ -21,9 +21,12 @@
     <link rel="stylesheet" href="{{asset('public/frontend/css/owl.carousel.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('public/frontend/css/slicknav.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('public/frontend/css/style.css')}}" type="text/css">
+
+
 </head>
 
 <body>
+
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -90,6 +93,42 @@
 
     <!-- Header Section Begin -->
     <header class="header">
+    <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__top__left">
+                            <ul>
+                                <li><i class="fa fa-envelope"></i> dochoistore@gmail.com</li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__top__right">
+                            <div class="header__top__right__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                            </div>
+                            <div class="header__top__right__language">
+                                <img src="img/language.png" alt="">
+                                <div>English</div>
+                                <span class="arrow_carrot-down"></span>
+                                <ul>
+                                    <li><a href="#">Spanis</a></li>
+                                    <li><a href="#">English</a></li>
+                                </ul>
+                            </div>
+                            <div class="header__top__right__auth">
+                                <a href="#"><i class="fa fa-user"></i> Login</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
@@ -100,28 +139,28 @@
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="{{URL::to('/trang-chu')}}">Trang chủ</a></li>
+                            <li class="active"><a href="{{URL::to('/trang-chu')}}">Home</a></li>
 
                             <?php
                                 $customer_id= Session::get('customer_id');
                                 $shipping_id = Session::get('shipping_id');
                                 if($customer_id != NULL && $shipping_id ==NULL){
                             ?>
-                               <li><a href="{{URL::to('/checkout')}}">Thanh Toán</a>
+                               <li><a href="{{URL::to('/checkout')}}">Payment</a>
                             <?php
                                 } elseif($customer_id !=NULL && $shipping_id !=NULL){
 
                             ?>
-                                <li><a href="{{URL::to('/payment')}}">Thanh Toán</a>
+                                <li><a href="{{URL::to('/payment')}}">Payment</a>
                             <?php
                                 } else {
                             ?>
-                                <li><a  href="{{URL::to('/login-checkout')}}">Thanh toán</a></li>
+                                <li><a  href="{{URL::to('/login-checkout')}}">Payment</a></li>
                             <?php
                                 }
                             ?>
 
-                            <li><a  href="{{URL::to('/show-cart')}}">Giỏ hàng</a></li>
+                            <li><a  href="{{URL::to('/show-cart')}}">Cart</a></li>
 
                             </li>
 
@@ -129,12 +168,12 @@
                                 $customer_id= Session::get('customer_id');
                                 if($customer_id != NULL){
                             ?>
-                                <li><a  href="{{URL::to('/logout-checkout')}}">Đăng xuất</a></li>
+                                <li><a  href="{{URL::to('/logout-checkout')}}">Logout</a></li>
 
                             <?php
                                 } else {
                             ?>
-                                <li><a  href="{{URL::to('/login-checkout')}}">Đăng nhập</a></li>
+                                <li><a  href="{{URL::to('/login-checkout')}}">Login</a></li>
                             <?php
                                 }
                             ?>
@@ -147,7 +186,7 @@
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                             <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
-                        <div class="header__cart__price">item: <span></span></div>
+
                     </div>
                 </div>
             </div>
@@ -166,7 +205,7 @@
                     <div class="hero__categories">
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
-                            <span>Danh mục sản phẩm</span>
+                            <span>Category</span>
                         </div>
                         <ul>
                         @foreach($category as $key => $cate)
@@ -179,7 +218,7 @@
                     <div class="hero__categories">
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
-                            <span>Thương hiệu sản phẩm</span>
+                            <span>Brand</span>
                         </div>
                         <ul>
                         @foreach($brand as $key => $brand)
@@ -203,27 +242,13 @@
                         </div>
 
                     </div>
-                    <div class="hero__item set-bg" data-setbg="{{('public/frontend/images/banner.jpg')}}">
-                        <div class="hero__text">
-                            <span>FRUIT FRESH</span>
-                            <h2>Vegetable <br />100% Organic</h2>
-                            <p>Free Pickup and Delivery Available</p>
-                            <a href="#" class="primary-btn">SHOP NOW</a>
-                        </div>
+                    <div class="hero__item set-bg" data-setbg="https://file.hstatic.net/1000355824/file/1920-x-600-_deal-thang-03__c52a2e2876df4450b8c54961c6935f6a.jpg">
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Hero Section End -->
-
-    <!-- Categories Section Begin -->
-
-    <!-- Categories Section End -->
-
-    <!-- Featured Section Begin -->
-
-    <!-- Featured Section End -->
     <div>
         @yield('content')
     </div>
@@ -251,18 +276,12 @@
                         <ul>
                             <li><a href="#">About Us</a></li>
                             <li><a href="#">About Our Shop</a></li>
-                            <li><a href="#">Secure Shopping</a></li>
-                            <li><a href="#">Delivery infomation</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Our Sitemap</a></li>
+
                         </ul>
                         <ul>
                             <li><a href="#">Who We Are</a></li>
                             <li><a href="#">Our Services</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Innovation</a></li>
-                            <li><a href="#">Testimonials</a></li>
+
                         </ul>
                     </div>
                 </div>
@@ -283,16 +302,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer__copyright">
-                        <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
-                        <div class="footer__copyright__payment"><img src="{{('public/frontend/images/payment-item.png')}}" alt=""></div>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </footer>
     <!-- Footer Section End -->
@@ -307,7 +317,53 @@
     <script src="{{asset('public/frontend/js/owl.carousel.min.js')}}"></script>
     <script src="{{asset('public/frontend/js/main.js')}}"></script>
 
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+    <script>
+        const usd = document.getElementById("vnd_to_usd").value;
+        const usdParse = parseFloat(usd.replace(/,/g, ''));
+        const total = Math.floor(usdParse/23000);
 
+
+        paypal.Button.render({
+
+                        // Configure environment
+            env: 'sandbox',
+            client: {
+            sandbox: 'AVRoJY2wmuALskfYogkTYms8SsUvbylrXHAPwFfCRShJ_bcC5Pq2PfPbHxlUr5tAlpRqj281Tw2rmx2q',
+            production: 'demo_production_client_id'
+            },
+            // Customize button (optional)
+            locale: 'en_US',
+            style: {
+            size: 'small',
+            color: 'gold',
+            shape: 'pill',
+            },
+
+            // Enable Pay Now checkout flow (optional)
+            commit: true,
+
+            // Set up a payment
+            payment: function(data, actions) {
+            return actions.payment.create({
+                transactions: [{
+                amount: {
+                    total: `${total}`,
+                    currency: 'USD'
+                }
+                }]
+            });
+            },
+            // Execute the payment
+            onAuthorize: function(data, actions) {
+            return actions.payment.execute().then(function() {
+                // Show a confirmation message to the buyer
+                window.alert('Cảm ơn bạn đã mua hàng của chúng tôi!');
+            });
+            }
+        }, '#paypal-button');
+
+    </script>
 
 </body>
 

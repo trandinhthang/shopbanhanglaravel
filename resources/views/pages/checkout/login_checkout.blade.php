@@ -4,7 +4,7 @@
 @section('content')
     <!-- Checkout Section End -->
     <section id=""><!--form-->
-	<div style="padding-left:200px;padding-bottom:50px" class="">
+	<div style="padding-left:270px;padding-bottom:50px" class="">
 
 		<div class="row">
 			<div class="col-sm-4 col-sm-offset-1">
