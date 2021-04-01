@@ -22,7 +22,7 @@ class HomeController extends Controller
         ->orderby('tbl_product.product_id','desc')
         ->get();
 
-        $all_product = DB::table('tbl_product')->where('product_status','0')->orderby('product_id','desc')->limit(4)->get();
+        $all_product = DB::table('tbl_product')->where('product_status','0')->orderby('product_id','desc')->limit(8)->get();
 
         return view('pages.home')->with('category',$cate_product)->with('brand',$brand_product)->with('all_product',$all_product);
     }

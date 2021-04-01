@@ -5,11 +5,12 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE html>
+<html style="background:#cfd2d4">
 <head>
 <title>Dashboard</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+<meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- bootstrap-css -->
@@ -22,7 +23,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 <!-- font-awesome icons -->
 <link rel="stylesheet" href="{{asset('public/backend/css/font.cs')}}s" type="text/css"/>
-<link href="{{asset('public/backend/css/font-awesome.css')}}" rel="stylesheet"> 
+<link href="{{asset('public/backend/css/font-awesome.css')}}" rel="stylesheet">
 <link rel="stylesheet" href="{{asset('public/backend/css/morris.css')}}" type="text/css"/>
 <!-- calendar -->
 <link rel="stylesheet" href="{{asset('public/backend/css/monthly.css')}}">
@@ -35,13 +36,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <section id="container">
 <!--header start-->
-<header class="header fixed-top clearfix">
+<header style="background:#146eff" class="header fixed-top clearfix">
 <!--logo start-->
-<div class="brand">
+<div style="background:#146eff" class="brand">
     <a href="index.html" class="logo">
         Admin
     </a>
-    <div class="sidebar-toggle-box">
+    <div style="background:#39abf7" class="sidebar-toggle-box">
         <div class="fa fa-bars"></div>
     </div>
 </div>
@@ -51,22 +52,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--search & user info start-->
     <ul class="nav pull-right top-menu">
         <li>
-            <input type="text" class="form-control search" placeholder=" Search">
+            <input style="background:#39abf7" type="text" class="form-control search" placeholder=" Search">
         </li>
         <!-- user login dropdown start-->
         <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+            <a style="background:#39abf7" data-toggle="dropdown" class="dropdown-toggle" href="#">
                 <img alt="" src="{{('public/backend/images/2.png')}}">
                 <span class="username">
                 <?php
 		            $name = Session::get('admin_name');
 		            if($name){
 			            echo $name;
-			    
+
 		        }
 
 	            ?>
-                
+
                 </span>
                 <b class="caret"></b>
             </a>
@@ -77,7 +78,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </ul>
         </li>
         <!-- user login dropdown end -->
-       
+
     </ul>
     <!--search & user info end-->
 </div>
@@ -85,7 +86,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--header end-->
 <!--sidebar start-->
 <aside>
-    <div id="sidebar" class="nav-collapse">
+    <div style="background:#39abf7"  id="sidebar" class="nav-collapse">
         <!-- sidebar menu start-->
         <div class="leftside-navigation">
             <ul class="sidebar-menu" id="nav-accordion">
@@ -95,7 +96,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Dashboard</span>
                     </a>
                 </li>
-                
+
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
@@ -104,7 +105,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <ul class="sub">
 						<li><a href="{{URL::to('/add-category-product')}}">Thêm danh mục sản phẩm</a></li>
 						<li><a href="{{URL::to('/all-category-product')}}">Danh sách danh mục sản phẩm</a></li>
-                       
+
                     </ul>
                 </li>
 				<li class="sub-menu">
@@ -115,7 +116,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <ul class="sub">
 						<li><a href="{{URL::to('/add-brand-product')}}">Thêm thương hiệu sản phẩm</a></li>
 						<li><a href="{{URL::to('/all-brand-product')}}">Danh sách thương hiệu sản phẩm</a></li>
-                       
+
                     </ul>
                 </li>
 				<li class="sub-menu">
@@ -126,32 +127,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <ul class="sub">
 						<li><a href="{{URL::to('/add-product')}}">Thêm sản phẩm</a></li>
 						<li><a href="{{URL::to('/all-product')}}">Danh sách sản phẩm</a></li>
-                       
+
                     </ul>
                 </li>
-               
+
             </ul>            </div>
         <!-- sidebar menu end-->
     </div>
 </aside>
 <!--sidebar end-->
 <!--main content start-->
-<section id="main-content">
+<section style="background:#cfd2d4" id="main-content">
 	<section class="wrapper">
-	
+
 		@yield('admin_content')
-        
-        
-		
-</section>
- <!-- footer -->
-		  <div class="footer">
-			<div class="wthree-copyright">
-			  <p>© 2017 Visitors. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
-			</div>
-		  </div>
-  <!-- / footer -->
-</section>
+
+
+
+
 <!--main content end-->
 </section>
 <script src="{{asset('public/backend/js/bootstrap.js')}}"></script>
@@ -161,7 +154,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="{{asset('public/backend/js/jquery.nicescroll.js')}}"></script>
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
 <script src="{{asset('public/backend/js/jquery.scrollTo.js')}}"></script>
-<!-- morris JavaScript -->	
+<!-- morris JavaScript -->
 <script>
 	$(document).ready(function() {
 		//BOX BUTTON SHOW AND CLOSE
@@ -174,12 +167,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		  jQuery(this).closest('.small-graph-box').fadeOut(200);
 		  return false;
 	   });
-	   
+
 	    //CHARTS
 	    function gd(year, day, month) {
 			return new Date(year, month - 1, day).getTime();
 		}
-		
+
 		graphArea2 = Morris.Area({
 			element: 'hero-area',
 			padding: 10,
@@ -202,7 +195,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				{period: '2016 Q3', iphone: 4830, ipad: 3805, itouch: 1598},
 				{period: '2016 Q4', iphone: 15083, ipad: 8977, itouch: 5185},
 				{period: '2017 Q1', iphone: 10697, ipad: 4470, itouch: 2038},
-			
+
 			],
 			lineColors:['#eb6f6f','#926383','#eb6f6f'],
 			xkey: 'period',
@@ -213,8 +206,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			hideHover: 'auto',
 			resize: true
 		});
-		
-	   
+
+
 	});
 	</script>
 <!-- calendar -->
@@ -224,7 +217,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			$('#mycalendar').monthly({
 				mode: 'event',
-				
+
 			});
 
 			$('#mycalendar2').monthly({
